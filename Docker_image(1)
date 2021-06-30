@@ -5,12 +5,6 @@ pipeline{
     }
     
     stages {
-        stage('git_clonning') {
-            steps {
-                git branch: 'main', credentialsId: 'd54f5cfa-c453-42d7-95ad-547b135829f5', url: 'https://github.com/vijayendraa/jenkins-sample.git'
-            }
-        }
-
         stage('build') {
             steps {
                 echo 'Building..'
