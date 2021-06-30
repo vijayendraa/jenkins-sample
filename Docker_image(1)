@@ -7,7 +7,7 @@ pipeline{
     stages {
         stage('git_clonning') {
             steps {
-                git branch: 'main', credentialsId: 'd806d3c7-795b-4c31-89b0-9ecb6d2babfd', url: 'https://github.com/rushikeshsawant143/Jenkins-practice.git'
+                git branch: 'main', credentialsId: 'd54f5cfa-c453-42d7-95ad-547b135829f5', url: 'https://github.com/vijayendraa/jenkins-sample.git'
             }
         }
 
@@ -30,14 +30,14 @@ pipeline{
 
         stage('docker_push_to _ECR') {
             steps {
-                sh 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 067663653687.dkr.ecr.us-east-1.amazonaws.com/docker-testng'
-                sh 'docker tag docker-apache2:latest 067663653687.dkr.ecr.us-east-1.amazonaws.com/docker-testng:latest'
+                sh 'aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 551435005715.dkr.ecr.us-east-2.amazonaws.com/docker-testng'
+                sh 'docker tag docker-apache2:latest 551435005715.dkr.ecr.us-east-2.amazonaws.com/docker-testng:latest'
             }
         }
 
         stage('docker_push_') {
             steps {
-                sh 'docker push 067663653687.dkr.ecr.us-east-1.amazonaws.com/docker-testng'
+                sh 'docker push 551435005715.dkr.ecr.us-east-2.amazonaws.com/docker-testng'
             }
         }
     }
